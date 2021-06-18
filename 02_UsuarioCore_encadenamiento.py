@@ -28,7 +28,6 @@ class Usuario:
             return print('saldo insuficiente')
         return self
     
-    
     def __str__(self):
         return f"Nombre: {self.nombre}\nEmail: {self.email}\nCuenta: {self.cuenta}\n"
 
