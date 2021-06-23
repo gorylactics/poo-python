@@ -3,27 +3,30 @@ class Usuario:
     def __init__(self , nombre , email):
         self.nombre = nombre
         self.email = email
-        self.cuenta = []
+        self.cuentas = []
 
-        # CuentaBancaria()
-    def agregarCuentas(self ,  cuenta):
-        self.cuenta.append(CuentaBancaria())
+    def agregarCuentas(self ,  cuentaNueva):
+        self.cuentas.append(cuentaNueva)
         return self
     
-    def mostrarSaldo(self):
-        return print(f'Su saldo es: {self.cuenta}')
+    def mostrarSaldo(self , cuenta):
+        return print(f'Su saldo es: {self.cuentas}')
+    
+    def mostrarCuentas(self , cuentas):
+        for cuenta in cuentas:
+            print(cuenta)
 
-    # def transferencia(self , traspaso , destino):
-    #     if self.cuenta > traspaso:
-    #         self.cuenta -= traspaso
-    #         destino.cuenta += traspaso
-    #         print(f"Ha realizado una transferencia a: {destino.nombre} por un monto de {traspaso} , su saldo actual es: {self.cuenta}")
+    # def transferencia(self , cuentaOrigen , traspaso  , destino):
+    #     if self.cuentaOrigen > traspaso:
+    #         self.cuentaOrigen -= traspaso
+    #         destino.cuentaOrigen += traspaso
+    #         # print(f"Ha realizado una transferencia a: {destino.nombre} por un monto de {traspaso} , su saldo actual es: {self.cuenta}")
     #     else:
     #         return print('saldo insuficiente')
     #     return self
     
     def __str__(self):
-        return f"Nombre: {self.nombre}\nEmail: {self.email}\nCuenta: {self.cuenta}\n"
+        return f"Nombre: {self.nombre}\nEmail: {self.email}\nCuenta: {self.cuentas}\n"
 
 class CuentaBancaria:
     def __init__(self):
@@ -47,9 +50,9 @@ class CuentaBancaria:
         return print(f'Su saldo es: {self.cuenta}')
         
     def saldoConInteres(self):
-        if self.cuenta > 0:
-            self.totalInteres = (self.cuenta * self.interes)
-            self.totalCuenta = self.cuenta + self.totalInteres
+        if self.cuentaS > 0:
+            self.totalInteres = (self.cuentaS * self.interes)
+            self.totalCuenta = self.cuentaS + self.totalInteres
         else:
             print('no hay saldo')
         return self
@@ -58,9 +61,8 @@ class CuentaBancaria:
         return f'Sin interes la cuenta posee: {self.cuenta} , con interes tiene: {self.totalCuenta}'
 
 gosia = Usuario('gosia' , 'gosiaDeAdrian@unaMillaMenos.pl')
-print(gosia)
 cuenta1 = CuentaBancaria()
 cuenta2 = CuentaBancaria()
-gosia.agregarCuentas(cuenta1.deposito(100).saldoConInteres())
-gosia.agregarCuentas(cuenta2.deposito(300).saldoConInteres())
+gosia.agregarCuentas(cuenta1)
+gosia.agregarCuentas(cuenta2)
 print(gosia)
